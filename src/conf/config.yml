@@ -1,0 +1,15 @@
+port: 8080
+log_file: web_health_check.log
+log_format: '%(asctime)s %(levelname)s: %(message)s'
+interval: 30
+# log level (50 - critical, 40 - error, 30 - warning, 20 - info, 10 - debug)
+level: 10
+timeout: 5
+
+checks:
+  - name: site1
+    url: https://site1.com/health_check
+    response: '{"status":"UP"}'
+  - name: site2
+    url: https://site2.com/health_check
+    response: '{"status":"UP"}'        
